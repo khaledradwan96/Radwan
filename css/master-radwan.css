@@ -22,6 +22,9 @@ body {
 ul {
   list-style: none;
 }
+a {
+  text-decoration: none;
+}
 .container {
   padding-left: 15px;
   padding-right: 15px;
@@ -47,3 +50,73 @@ ul {
   }
 }
 /* End Global Rules */
+
+/* Start Header */
+header {
+  background-color: white;
+  position: relative;
+  box-shadow: 0px 0px 10px #ddd;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header .container {
+    flex-direction: column;
+  }
+}
+header .container > a {
+  color: var(--main-color);
+  font-size: 26px;
+  font-weight: bold;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  header .container > a {
+    height: 45px;
+  }
+}
+header .main-nav {
+  display: flex;
+}
+header .main-nav a {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  height: 70px;
+  font-size: 18px;
+  color: black;
+  text-transform: capitalize;
+  transition: var(--duration);
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  header .main-nav a {
+    height: 40px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+}
+header .main-nav a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  top: 0;
+  left: -100%;
+  background-color: var(--main-color);
+  transition: var(--duration);
+}
+header .main-nav a:hover {
+  background-color: #fafafa;
+  color: var(--main-color);
+}
+header .main-nav a:hover::before {
+  left: 0;
+}
+/* End Header */
