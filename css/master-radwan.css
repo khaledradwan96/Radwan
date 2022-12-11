@@ -1,8 +1,8 @@
 /* Start Variables */
 :root {
   --main-color: #2196f3;
-  --main-color-alt: #1787e0;
-  --section-padding: 100px 0px;
+  --main-color-alt: #145f9c;
+  --section-padding: 100px;
   --duration: 0.3s;
 }
 /* End Variables */
@@ -120,3 +120,96 @@ header .main-nav a:hover::before {
   left: 0;
 }
 /* End Header */
+
+/* Start Landing Page */
+.landing {
+  position: relative;
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ececec;
+  z-index: -1;
+  transform: skewY(-6deg);
+  transform-origin: top left;
+}
+.landing .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px);
+  padding-bottom: var(--section-padding);
+}
+.landing .text h1 {
+  font-size: 34px;
+  letter-spacing: -2px;
+  margin: 10px auto;
+}
+.landing .text:hover span {
+  color: var(--main-color);
+}
+@media (max-width: 767px) {
+  .landing .text h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+.landing .text p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+@media (max-width: 767px) {
+  .landing .text p {
+    text-align: center;
+    font-size: 18px;
+  }
+}
+.landing .container img {
+  width: 50%;
+  animation: up-down 3s infinite linear alternate;
+}
+@keyframes up-down {
+  to {
+    transform: translateY(-20px);
+  }
+}
+@media (max-width: 767px) {
+  .landing .container img {
+    display: none;
+  }
+}
+.landing .button-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--main-color);
+}
+.landing .button-down i:hover {
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  padding: 10px;
+}
+.landing .button-down i {
+  animation: bouncing 1.5s infinite;
+}
+@keyframes bouncing {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+/* End Landing Page */
