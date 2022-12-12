@@ -4,4 +4,4 @@
 
 ### Demo
 
-https://khaledradwan96.github.io/radwan/
+https://khaledradwan96.github.io/Radwan/

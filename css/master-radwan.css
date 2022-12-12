@@ -61,6 +61,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 @media (max-width: 767px) {
   header .container {
@@ -83,7 +84,7 @@ header .container > a {
 header .main-nav {
   display: flex;
 }
-header .main-nav a {
+header .main-nav > li > a {
   display: flex;
   align-items: center;
   padding: 0 30px;
@@ -96,13 +97,13 @@ header .main-nav a {
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  header .main-nav a {
+  header .main-nav > li > a {
     height: 40px;
     padding: 0 10px;
     font-size: 14px;
   }
 }
-header .main-nav a::before {
+header .main-nav > li > a::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -112,13 +113,93 @@ header .main-nav a::before {
   background-color: var(--main-color);
   transition: var(--duration);
 }
-header .main-nav a:hover {
+header .main-nav > li > a:hover {
   background-color: #fafafa;
   color: var(--main-color);
 }
-header .main-nav a:hover::before {
+header .main-nav > li > a:hover::before {
   left: 0;
 }
+/* Start Mega Menu */
+header .mega-menu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  top: calc(100% + 70px);
+  background-color: white;
+  z-index: -1;
+  border-bottom: 3px solid var(--main-color);
+  opacity: 0;
+  transition: top var(--duration), opacity var(--duration);
+}
+header .main-nav > li:last-child:hover .mega-menu {
+  top: calc(100% + 1px);
+  opacity: 1;
+  z-index: 1;
+}
+@media (max-width: 767px) {
+  header .mega-menu {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+header .mega-menu > div {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+header .mega-menu > div img {
+  max-width: 100%;
+}
+@media (max-width: 991px) {
+  header .main-nav .mega-menu > div {
+    display: none;
+  }
+}
+header .mega-menu .links {
+  flex: 1;
+}
+header .mega-menu a {
+  display: block;
+  padding: 15px;
+  font-size: 18px;
+  color: var(--main-color);
+  text-transform: capitalize;
+  font-weight: bold;
+  transition: var(--duration);
+  position: relative;
+  overflow: hidden;
+}
+header .mega-menu a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  top: 0;
+  background-color: #fafafa;
+  transition: var(--duration);
+  z-index: -1;
+}
+header .mega-menu a:hover:before {
+  left: 0;
+}
+header .mega-menu .links li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+@media (max-width: 767px) {
+  header .mega-menu .links:first-of-type li:last-child {
+    border-bottom: 1px solid #eee;
+  }
+}
+header .mega-menu .links li i {
+  padding-right: 15px;
+}
+/* End Mega Menu */
 /* End Header */
 
 /* Start Landing Page */
