@@ -2,6 +2,10 @@
 :root {
   --main-color: #2196f3;
   --main-color-alt: #145f9c;
+  --text-color: #777;
+  --section-background: #ececec;
+  --border-color: #e6e6e7;
+  --fill-background: #fafafa;
   --section-padding: 100px;
   --duration: 0.3s;
 }
@@ -51,10 +55,11 @@ a {
 }
 /* End Global Rules */
 
-/* Start Components */
+/* === Start Components === */
+/* main-title */
 .main-title {
   width: fit-content;
-  margin: auto;
+  margin: 0 auto 70px;
   padding: 10px 20px;
   border: 2px solid black;
   text-transform: uppercase;
@@ -118,8 +123,31 @@ a {
     height: 100%;
   }
 }
-
-/* End Components */
+/* Spikes */
+.spikes {
+  position: relative;
+  background: var(--section-background);
+  height: 25vh;
+}
+.spikes::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: -0%;
+  bottom: 100%;
+  z-index: 10;
+  display: block;
+  height: 30px;
+  background-size: 30px 100%;
+  background-image: linear-gradient(
+      -45deg,
+      var(--section-background) 25%,
+      transparent 25%
+    ),
+    linear-gradient(45deg, var(--section-background) 25%, transparent 25%);
+  background-position: 0 0;
+}
+/* === End Components === */
 
 /* Start Header */
 header {
@@ -184,7 +212,7 @@ header .main-nav > li > a::before {
   transition: var(--duration);
 }
 header .main-nav > li > a:hover {
-  background-color: #fafafa;
+  background-color: var(--fill-background);
   color: var(--main-color);
 }
 header .main-nav > li > a:hover::before {
@@ -251,7 +279,7 @@ header .mega-menu a::before {
   height: 100%;
   left: -100%;
   top: 0;
-  background-color: #fafafa;
+  background-color: var(--fill-background);
   transition: var(--duration);
   z-index: -1;
 }
@@ -259,11 +287,11 @@ header .mega-menu a:hover:before {
   left: 0;
 }
 header .mega-menu .links li:not(:last-child) {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
 }
 @media (max-width: 767px) {
   header .mega-menu .links:first-of-type li:last-child {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
   }
 }
 header .mega-menu .links li i {
@@ -281,7 +309,7 @@ header .mega-menu .links li i {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #ececec;
+  background-color: var(--section-background);
   z-index: -1;
   transform: skewY(-6deg);
   transform-origin: top left;
@@ -345,7 +373,7 @@ header .mega-menu .links li i {
 }
 .landing .container img {
   width: 50%;
-  animation: up-down 3s infinite linear alternate;
+  animation: up-down 2s infinite linear alternate;
 }
 @keyframes up-down {
   to {
@@ -389,3 +417,74 @@ header .mega-menu .links li i {
   }
 }
 /* End Landing Page */
+
+/* Start Articles */
+article {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+article .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+article .box {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--duration);
+}
+article .box:hover {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+  transform: translateY(-10px);
+}
+article .box img {
+  width: 100%;
+  transition: var(--duration);
+  filter: grayscale(1);
+}
+article .box:hover img {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+article .box .text {
+  padding: 20px;
+}
+article .box p {
+  margin: 10px 0;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+article .box .read-more {
+  padding-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+article .box .read-more::before {
+  content: "";
+  width: calc(100% + 40px);
+  height: 1px;
+  background-color: var(--border-color);
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
+article .box .read-more a {
+  color: var(--main-color);
+  font-weight: bold;
+}
+article .box .read-more i {
+  color: var(--main-color);
+}
+article .box:hover .read-more i {
+  animation: arrow-move 0.8s linear infinite;
+}
+@keyframes arrow-move {
+  to {
+    transform: translateX(10px);
+  }
+}
+/* End Articles */
