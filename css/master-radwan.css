@@ -29,6 +29,9 @@ ul {
 a {
   text-decoration: none;
 }
+p {
+  line-height: 1.5;
+}
 .container {
   padding-left: 15px;
   padding-right: 15px;
@@ -303,8 +306,6 @@ header .mega-menu .links li i {
 /* Start Landing Page */
 .landing {
   position: relative;
-  /* background-color: white;
-  z-index: 2; */
 }
 .landing::before {
   content: "";
@@ -365,7 +366,6 @@ header .mega-menu .links li i {
 }
 .landing .text p {
   font-size: 20px;
-  line-height: 1.4;
 }
 @media (max-width: 767px) {
   .landing .text p {
@@ -447,7 +447,6 @@ article .box .text {
 }
 article .box p {
   margin: 10px 0;
-  line-height: 1.5;
   color: var(--text-color);
 }
 article .box .read-more {
@@ -633,7 +632,6 @@ article .button-up:hover {
 .features .box p {
   margin: 30px 0;
   padding: 10px;
-  line-height: 1.6;
   font-size: 20px;
 }
 .features .box a {
@@ -687,3 +685,54 @@ article .button-up:hover {
   left: 0;
 }
 /* End Features */
+
+/* Start Testimonials */
+.testimonials {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-background);
+}
+.testimonials .container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.testimonials .box {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  transition: var(--duration);
+}
+.testimonials .box:hover {
+  background-color: rgba(3, 168, 244, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 12%);
+}
+.testimonials .box img {
+  width: 100px;
+  border-radius: 50%;
+  border: 10px solid var(--section-background);
+  position: absolute;
+  right: -10px;
+  top: -50px;
+  filter: grayscale(1);
+}
+.testimonials .box:hover img {
+  filter: grayscale(0);
+}
+.testimonials .box h4 {
+  margin: 10px 0;
+  color: var(--main-color);
+}
+.testimonials .box .rate .filled {
+  color: #ffc107;
+}
+.testimonials .box .rate .far {
+  color: #ffc107;
+}
+.testimonials .box p {
+  margin-top: 10px;
+  color: var(--text-color);
+}
+/* End Testimonials */
