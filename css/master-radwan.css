@@ -894,3 +894,46 @@ article .button-up:hover {
   color: var(--main-color);
 }
 /* End Services */
+
+/* Start Our Skills */
+.skills {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.skills .container {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .skills .container img {
+    display: none;
+  }
+}
+.skills .skills-box {
+  flex: 1;
+}
+.skills .progress {
+  margin-bottom: 20px;
+}
+.skills .progress .prog-bar {
+  margin-top: 15px;
+  height: 25px;
+  background-color: #eee;
+}
+.skills .progress .prog-bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--main-color);
+  position: relative;
+}
+.skills .progress .prog-bar span::before {
+  content: attr(data-progress);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+/* End Our Skills */
