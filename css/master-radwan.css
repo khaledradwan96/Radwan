@@ -128,27 +128,24 @@ p {
 }
 /* Spikes */
 .spikes {
-  padding-top: var(--section-padding);
   position: relative;
-  background: var(--section-background);
 }
 .spikes::after {
   content: "";
   position: absolute;
   right: 0;
   left: -0%;
-  bottom: 100%;
-  /* z-index: 10; */
+  bottom: 100px;
   display: block;
   height: 30px;
   background-size: 30px 100%;
   background-image: linear-gradient(
-      -45deg,
+      135deg,
       var(--section-background) 25%,
       transparent 25%
     ),
-    linear-gradient(45deg, var(--section-background) 25%, transparent 25%);
-  background-position: 0 0;
+    linear-gradient(225deg, var(--section-background) 25%, transparent 25%);
+  transform: rotate(180deg);
 }
 /* === End Components === */
 
@@ -493,15 +490,15 @@ article .button-up {
 }
 article .button-up:hover {
   background-color: var(--main-color-alt);
-  animation: bouncing 1s infinite;
+  animation: bouncing 0.7s;
 }
 /* End Articles */
 
 /* Start Gallery */
 .gallery {
+  padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
   background-color: var(--section-background);
-  position: relative;
 }
 .gallery .container {
   display: grid;
@@ -814,3 +811,19 @@ article .button-up:hover {
   color: var(--main-color);
 }
 /* End Team Member */
+
+/* Start Services */
+.services {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--section-background);
+}
+.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.services .box {
+  background-color: white;
+}
+/* End Services */
