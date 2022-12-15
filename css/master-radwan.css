@@ -4,6 +4,7 @@
   --main-color-alt: #145f9c;
   --text-color: #777;
   --section-background: #ececec;
+  --box-background: #f9f9f9;
   --border-color: #e6e6e7;
   --fill-background: #fafafa;
   --section-padding: 100px;
@@ -859,7 +860,7 @@ article .button-up:hover {
 }
 .services .box .info {
   padding: 12px;
-  background-color: #f9f9f9;
+  background-color: var(--box-background);
   text-align: right;
   position: relative;
 }
@@ -1424,3 +1425,102 @@ article .button-up:hover {
   color: var(--text-color);
 }
 /* End Stats */
+
+/* Start Discount */
+.discount {
+  display: flex;
+}
+@media (max-width: 991px) {
+  .discount {
+    flex-direction: column;
+  }
+}
+.discount .image {
+  flex-basis: 50%;
+  padding: 30px;
+  background-image: url(../images/discount-background1.jpg);
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  animation: change-background 10s linear infinite;
+  animation-fill-mode: both;
+}
+@keyframes change-background {
+  to {
+    background-image: url(../images/discount-background2.jpg);
+  }
+}
+.discount .image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: calc(100% + 1px);
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 168, 244, 0.97);
+  z-index: -1;
+}
+.discount h3 {
+  font-size: 30px;
+}
+.discount .image p {
+  margin: 20px 0;
+  max-width: 500px;
+  color: inherit;
+  text-align: center;
+}
+.discount .image img {
+  max-width: 100%;
+  width: 300px;
+}
+.discount .form {
+  flex-basis: 50%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.discount .form form {
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+}
+@media (max-width: 420px) {
+  .discount .form form {
+    width: 80%;
+  }
+}
+.discount .form input,
+.discount .form textarea {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  background-color: var(--box-background);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--main-color);
+  caret-color: var(--main-color);
+}
+.discount .form input[type="submit"] {
+  background-color: var(--main-color);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: var(--duration);
+}
+.discount .form input[type="submit"]:hover {
+  background-color: var(--main-color-alt);
+}
+.discount .form textarea {
+  resize: none;
+  height: 250px;
+}
+/* End Discount */
